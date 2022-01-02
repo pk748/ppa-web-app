@@ -1,0 +1,84 @@
+<div class="section">
+  <h2 nz-typography>Check History</h2>
+<div class="row row_top">
+
+
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
+    <div class="section">
+      <nz-breadcrumb style="margin-bottom: 10px;">
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/authentication/landing'" class="breadcrumb_active"><i nz-icon nzType="home"
+              style="color: #073262;" nzTheme="fill"></i></a>
+        </nz-breadcrumb-item>
+
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/dashboard/home'" class="breadcrumb_active">Assign</a>
+      </nz-breadcrumb-item>
+
+
+      <nz-breadcrumb-item class="breadcrumb_text">
+          History
+      </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+
+
+
+  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
+    <nz-avatar nzIcon="user" nzSrc="../../../assets/images/logo/chile.png"></nz-avatar>&nbsp; <b>Chile</b>
+
+    <nz-form-label style="float: right !important;">Audit Type</nz-form-label>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
+    <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+      [(ngModel)]="supplier_value">
+      <nz-option *ngFor="let o of supplier_list" [nzValue]="o.value" [nzLabel]="o.label">
+      </nz-option>
+    </nz-select>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+    <nz-card style="opacity: 1 !important;">
+
+      <div class="row ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+          <div class="row">
+            <nz-table id="excel-table" #rowSelectionTable [nzData]="listOfData"
+              [nzShowPagination]="false" >
+              <thead style="font-size: 12px !important;">
+                <tr>
+                  <th *ngFor="let column of listOfColumns" [(nzSortOrder)]="column.sortOrder"
+                    [nzSortFn]="column.sortFn" [nzFilters]="column.listOfFilter" [nzFilterFn]="column.filterFn">
+                    {{column.name}}</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of rowSelectionTable.data">
+                  <td>{{ data.AuditYear }}</td>
+                  <td>{{ data.AuditType }}</td>
+                  <td>{{ data.QRId }}</td>
+                  <td>{{ data.VendorName }}</td>
+                  <td>{{ data.DealNbr }}</td>
+                  <td>{{ data.DeCurrentQRStatus }}</td>
+                  <td>{{ data.Currentlyassignto }}</td>
+                  <td>{{ data.LastModifiedby }}</td>
+                  <td>{{ data.LastModifieddate }}</td>
+                  <td>{{ data.LastActionPerform }}</td>
+                  <td>{{data.Remarks}}</td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </div>
+
+      </div>
+    </nz-card>

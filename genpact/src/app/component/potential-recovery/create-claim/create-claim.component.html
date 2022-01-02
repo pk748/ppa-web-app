@@ -1,0 +1,324 @@
+<h2 nz-typography>Create Claim</h2>
+<div class="row row_top">
+
+
+  <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 ">
+    <div class="section">
+      <nz-breadcrumb style="margin-bottom: 10px;">
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/authentication/landing'" class="breadcrumb_active"><i nz-icon nzType="home"
+              style="color: #073262;" nzTheme="fill"></i></a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/potential_recovery/create_claim'" class="breadcrumb_active">Potential Recovery</a>
+        </nz-breadcrumb-item>
+
+        <nz-breadcrumb-item class="breadcrumb_text">
+          Create Claim
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+
+
+  <div class=" col-xs-12 col-sm-12 col-md-10 col-lg-15">
+    <nz-card>
+
+      <div class="row" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-list nzItemLayout="horizontal">
+            <nz-list-item style="border: 1px solid #ddd; padding: 10px; background-color: rgb(255, 255, 255);">
+              <nz-list-item-meta nzDescription="Claim Number">
+                <nz-list-item-meta-title>
+                  <a href="https://ng.ant.design">{{ "12007- 4567" }}</a>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+            </nz-list-item>
+          </nz-list>
+        </div>
+
+
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-list nzItemLayout="horizontal">
+            <nz-list-item style="border: 1px solid #ddd; padding: 10px; background-color: rgb(255, 255, 255);">
+              <nz-list-item-meta nzDescription="Date">
+                <nz-list-item-meta-title>
+                  <a href="https://ng.ant.design">{{ "12-03-2021" }}</a>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+            </nz-list-item>
+          </nz-list>
+        </div>
+
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-list nzItemLayout="horizontal">
+            <nz-list-item style="border: 1px solid #ddd; padding: 10px; background-color: rgb(255, 255, 255);">
+              <nz-list-item-meta nzDescription="Audit year">
+                <nz-list-item-meta-title>
+                  <a href="https://ng.ant.design">{{ "2020" }}</a>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+            </nz-list-item>
+          </nz-list>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Audit Type</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="supplier_value">
+            <nz-option *ngFor="let o of supplier_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Claim Type</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="claim_type_value">
+            <nz-option *ngFor="let o of claim_type_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">claim Holder</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="claim_holder_value">
+            <nz-option *ngFor="let o of claim_holder_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nz-form-label style="">Root Cause</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="root_causes_value">
+            <nz-option *ngFor="let o of root_causes_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <nz-form-label style="">Claim Reason</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="claim_reason_value">
+            <nz-option *ngFor="let o of claim_reason_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+        <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <nz-form-label style="">WM Claim Reason</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="wm_claim_reason_value">
+            <nz-option *ngFor="let o of wm_claim_reason_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nz-form-label style="">Claim Explanation</nz-form-label>
+          <textarea nz-input
+            placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            [nzAutosize]="{ minRows: 4, maxRows: 6 }"></textarea>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <nz-form-label style="">Buyer Id</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="claim_reason_value">
+            <nz-option *ngFor="let o of claim_reason_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+        <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <nz-form-label style="">Supplier Id</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="wm_claim_reason_value">
+            <nz-option *ngFor="let o of wm_claim_reason_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nz-form-label style="">Supplier Address</nz-form-label>
+          <textarea nz-input
+            placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            [nzAutosize]="{ minRows: 4, maxRows: 6 }"></textarea>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Format</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="format_name_value">
+            <nz-option *ngFor="let o of format_name_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Original Claim Amount</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="orginal_claim_amt_value">
+            <nz-option *ngFor="let o of orginal_claim_amt_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Currency</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="currency_value">
+            <nz-option *ngFor="let o of currency_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <nz-form-label style="">Supplier Remark</nz-form-label>
+          <textarea nz-input
+            placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            [nzAutosize]="{ minRows: 6, maxRows: 6 }"></textarea>
+        </div>
+
+        <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <nz-form-label style="">Auditor's Findings</nz-form-label>
+          <textarea nz-input
+            placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            [nzAutosize]="{ minRows: 6, maxRows: 6 }"></textarea>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Department NBR</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="currency_value">
+            <nz-option *ngFor="let o of currency_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Area of responsibility</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="currency_value">
+            <nz-option *ngFor="let o of currency_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Time period</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="currency_value">
+            <nz-option *ngFor="let o of currency_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">Conversion Likelihood :</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="currency_value">
+            <nz-option *ngFor="let o of currency_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <nz-form-label style="">SAMS Cat ::</nz-form-label>
+          <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+            [(ngModel)]="currency_value">
+            <nz-option *ngFor="let o of currency_list" [nzValue]="o.value" [nzLabel]="o.label">
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <label nz-checkbox [(ngModel)]="check_include_auth">Include Authorization Mode on Print</label>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <label nz-checkbox [(ngModel)]="check_include_auth">Include 30-day warning on Cover Sheet</label>
+        </div>
+      </div>
+
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nz-form-label style="">Additional Note</nz-form-label>
+          <textarea nz-input placeholder="Add final note here" [nzAutosize]="{ minRows: 4, maxRows: 6 }"></textarea>
+        </div>
+      </div>
+
+      <div class="row row-top" style="font-size: 16px !important;">
+        <div class=" col-xs-12 col-sm-12 col-md-5 col-lg-5">
+          <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+            <button nz-button style="width: 400px !important;"><i nz-icon nzType="upload"></i>Attach File </button>
+          </nz-upload>
+        </div>
+        <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <button nz-button [nzType]="'primary'" [nzLoading]="uploading" (click)="handleUpload()"
+            [disabled]="fileList.length == 0">
+            {{ uploading ? 'Uploading' : 'Upload' }}
+          </button>
+
+        </div>
+      </div>
+
+      <div class="row row-top">
+        <div class="col-sm-12 col-md-7 col-lg-7">
+
+          <button nz-button style="float: left;  color: #fff !important; margin-right: 10px !important;"
+            nzType="primary">Create Claim Package</button>
+          <button nz-button style="float: left; color: #fff !important;margin-right: 10px !important;"
+            nzType="primary">Create Payback</button>
+          <button nz-button style="float: left; color: #fff !important;margin-right: 10px !important;"
+            nzType="primary">Cancel</button>
+        </div>
+        <div class="col-sm-12 col-md-5 col-lg-5">
+          <span style="float: right !important;">
+            <button nz-button style="float: left;  color: #fff !important;" nzType="primary" nzDanger>Create
+              Claim</button>
+          </span>
+
+        </div>
+
+      </div>
+
+    </nz-card>
+
+  </div>
+  <div class=" col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
+    <div >
+      <nz-card  [nzBordered]="true" nzTitle="Selected QA" style="height: 400px;">
+        <p>Card content</p>
+        <p>Card content</p>
+        <p>Card content</p>
+      </nz-card>
+    </div>
+  </div>
+</div>

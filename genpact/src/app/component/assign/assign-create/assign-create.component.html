@@ -1,0 +1,97 @@
+<!-- // ************************************************************************************************************************************************** -->
+<!-- // HOME HEADING START-->
+
+<!-- <nz-divider></nz-divider> -->
+<!-- // HOME HEADING END-->
+<!-- // ************************************************************************************************************************************************** -->
+<div class="section">
+    <!-- <nz-breadcrumb>
+      <nz-breadcrumb-item>
+          <a [routerLink]="'/authentication/landing'" class="breadcrumb_active">Home</a>
+      </nz-breadcrumb-item>
+  
+      <nz-breadcrumb-item class="breadcrumb_text">
+          Assign
+      </nz-breadcrumb-item>
+  </nz-breadcrumb> -->
+    <p></p>
+    <div class="card" style="opacity: 1 !important;">
+        <div class="row row_top">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                <div class="row">
+            
+                   
+                    <!-- <button nz-button (click)="addRow()" nzType="primary">Add</button> -->
+                    <!-- <nz-table #rowSelectionTable [nzData]="listOfData" [nzScroll]="{ y: '300px' }" [nzShowPagination]="false"
+                (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                <thead>
+                  <tr>
+                    <th [nzSelections]="listOfSelection" [(nzChecked)]="checked" [nzIndeterminate]="indeterminate"
+                      (nzCheckedChange)="onAllChecked($event)"></th>
+                    <th  *ngFor="let column of listOfColumns; trackBy: trackByName"
+                    [(nzSortOrder)]="column.sortOrder"
+                    [nzSortFn]="column.sortFn"
+                    [nzFilters]="column.listOfFilter"
+                    [nzFilterFn]="column.filterFn">{{column.name}}</th>
+                    
+                  </tr>
+                </thead> -->
+                    <!-- <tbody>
+                  <tr *ngFor="let data of rowSelectionTable.data">
+                    <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+                    <td>{{ data.UserChg }}</td>
+                    <td>{{ data.AuditYear }}</td>
+                    <td>{{ data.Tier }}</td>
+                    <td>{{ data.VendorSAP }}</td>
+                    <td>{{ data.VendorName }}</td>
+                    <td>{{ data.VendorNbr }}</td>
+                    <td>{{ data.Deal }}</td>
+                    <td>{{ data.ApprovedNot }}</td>
+                    <td>{{ data.ApprovedBy }}</td>
+                    <td>{{ data.AllItem }}</td>
+                    <td>{{ data.StartDate }}</td>
+                  </tr>
+                </tbody>
+              </nz-table> -->
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row row-top">
+            <div class="col-sm-12 col-md-7 col-lg-9">
+                <button nz-button
+                    style="float: left; background-color: #073262 !important; margin-right: 10px !important; color: #fff !important;"
+                    nzType="primary">Export All</button>
+                <button nz-button
+                    style="float: left; background-color: #073262 !important; color: #fff !important; margin-right: 10px !important;"
+                    nzType="primary">Export Selected</button>
+                <button nz-button
+                    style="float: left; background-color: #073262 !important; color: #fff !important;margin-right: 10px !important;"
+                    nzType="primary">Add Row</button>
+                <button nz-button
+                    style="float: left; background-color: #073262 !important; color: #fff !important;margin-right: 10px !important;"
+                    nzType="primary">Click History</button>
+            </div>
+            <div class="col-sm-12 col-md-5 col-lg-3">
+                <span style="float: right !important;">
+                    <button nz-button
+                        style="float: left; background-color: #FF4A55 !important; color: #fff !important;margin-right: 10px !important;"
+                        nzType="primary">Assign</button>
+                    <button nz-button style="float: left; background-color: #FF4A55 !important; color: #fff !important;"
+                        nzType="primary">Submit</button>
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,139 @@
+<!-- // ************************************************************************************************************************************************** -->
+<!-- // HOME HEADING START-->
+<h2 nz-typography>Assign</h2>
+<div class="row row_top">
+
+
+  <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 ">
+    <div class="section">
+      <nz-breadcrumb style="margin-bottom: 10px;">
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/authentication/landing'" class="breadcrumb_active"><i nz-icon nzType="home"
+              style="color: #073262;" nzTheme="fill"></i></a>
+        </nz-breadcrumb-item>
+
+        <nz-breadcrumb-item class="breadcrumb_text">
+         Assign
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+
+
+
+  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
+    <nz-avatar nzIcon="user" nzSrc="../../../assets/images/logo/chile.png"></nz-avatar>&nbsp; <b>Chile</b>
+
+    <nz-form-label style="float: right !important;">Audit Type</nz-form-label>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
+    <nz-select style="margin-bottom: 5px;" nzShowSearch nzAllowClear nzPlaceHolder="New Store"
+      [(ngModel)]="supplier_value">
+      <nz-option *ngFor="let o of supplier_list" [nzValue]="o.value" [nzLabel]="o.label">
+      </nz-option>
+    </nz-select>
+  </div>
+
+
+
+
+
+  <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 ">
+    <a nz-popover nzPopoverContent="Clear selection" style="font-weight: bold; font-size: 20px;;"
+      (click)="ResetClick()"><i nz-icon nzType="reload" nzTheme="outline"></i></a>
+  </div>
+
+</div>
+<!-- // HOME HEADING END-->
+<!-- // ************************************************************************************************************************************************** -->
+
+<nz-card style="opacity: 1 !important;">
+  <div class="row ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+      <div class="row">
+        <nz-table id="excel-table" #rowSelectionTable [nzData]="listOfData" [nzScroll]="{ x: '1200px', y: '240px' }"
+          [nzShowPagination]="false" (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+          <thead style="font-size: 12px !important;">
+            <tr>
+              <th [nzSelections]="listOfSelection" [(nzChecked)]="checked" [nzIndeterminate]="indeterminate"
+                (nzCheckedChange)="onAllChecked($event)"></th>
+              <th *ngFor="let column of listOfColumns; trackBy: trackByName" [(nzSortOrder)]="column.sortOrder"
+                [nzSortFn]="column.sortFn" [nzFilters]="column.listOfFilter" [nzFilterFn]="column.filterFn">
+                {{column.name}}</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of rowSelectionTable.data">
+              <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+              <td>
+                <div class="editable-cell" [hidden]="editId === data.id" (click)="startEdit(data.id)">
+                  {{ data.UserChg }}
+                </div>
+                <input [hidden]="editId !== data.id" type="text" nz-input [(ngModel)]="data.name" (blur)="stopEdit()" />
+              </td>
+              <td>{{ data.AuditYear }}</td>
+              <td>{{ data.Tier }}</td>
+              <td>{{ data.VendorSAP }}</td>
+              <td>{{ data.VendorName }}</td>
+              <td>{{ data.VendorNbr }}</td>
+              <td>{{ data.Deal }}</td>
+              <td>{{ data.ApprovedNot }}</td>
+              <td>{{ data.ApprovedBy }}</td>
+              <td>{{ data.AllItem }}</td>
+              <td>{{ data.StartDate }}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row row-top">
+    <div class="col-sm-12 col-md-7 col-lg-9">
+
+      <button nz-button style="float: left;  color: #fff !important; margin-right: 10px !important;" nzType="primary"
+        (click)="exportexcelSelected()" [disabled]="exportSelectedDisabled">Export</button>
+      <button nz-button style="float: left; color: #fff !important;margin-right: 10px !important;" nzType="primary"
+        [disabled]="true">Add Row</button>
+      <button nz-button style="float: left; color: #fff !important;margin-right: 10px !important;" nzType="primary"
+        (click)="clickHistory()">Check History</button>
+    </div>
+    <div class="col-sm-12 col-md-5 col-lg-3">
+      <span style="float: right !important;">
+        <button nz-button style="float: left;  color: #fff !important;margin-right: 10px !important;" nzType="primary"
+          (click)="showModal()" nzDanger>Assign</button>
+        <button nz-button style="float: left;  color: #fff !important;" nzType="primary" (click)="SubmitAssign()"
+          [disabled]="disableSubmitAssign" [nzLoading]="isConfirmLoading" nzDanger>Submit</button>
+      </span>
+
+    </div>
+
+  </div>
+</nz-card>
+
+
+<nz-modal [(nzVisible)]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter"
+  (nzOnCancel)="handleCancel()">
+  <ng-template #modalTitle>
+    Auditors
+  </ng-template>
+
+  <ng-template #modalContent>
+    <nz-select nzPlaceHolder="Search Auditors" [(ngModel)]="listOfSelectedValue">
+      <nz-option *ngFor="let option of listOfOption" [nzLabel]="option" [nzValue]="option"
+        [nzHide]="!isNotSelected(option)"></nz-option>
+    </nz-select>
+
+    <textarea style="margin-top: 10px;" rows="4" nz-input [(ngModel)]="comment_value"
+      placeholder="Add Comment"></textarea>
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+    <button nz-button nzType="primary" (click)="handleOk()">Assign Auditor</button>
+  </ng-template>
+</nz-modal>
+
+

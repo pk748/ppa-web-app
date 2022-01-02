@@ -1,0 +1,81 @@
+<div class="container-fluid p-0 h-100">
+    <div class="row no-gutters h-100">
+        <div class="col-lg-12 d-none d-lg-flex"
+            style="background-image:url('assets/images/logo/Login-Bg_Image.png'); padding-top: 20px;background-repeat: no-repeat;background-size: cover;">
+            <div class="d-flex h-100 p-h-40  flex-column justify-content-between">
+                <img src="assets/images/logo/logo.png" alt="">
+            </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="offset-md-1 col-md-5 d-none d-md-block">
+                        <img class="img-fluid" src="assets/images/logo/logo1.png" alt=""
+                            style="height:70%; margin-bottom: 20px; width:200px !important; text-align: left !important;">
+                        <p style="
+                    letter-spacing: 0px; text-align: left !important;
+                    color: #FFFFFF; "><span style="font-size: 26px;">Welcome to,</span><br> <span
+                                style="font-size: 35px;">Post Payment Audit</span></p>
+                    </div>
+                    <div class="col-md-4" style="margin-top: 20px; margin-bottom: 20px">
+                        <nz-card>
+                            <h2 class="m-t-10">Sign In</h2>
+                            <nz-alert *ngIf="showUserAuthMessage" nzType="error" nzMessage="User doesn't exist!"></nz-alert>
+                            <form nz-form [formGroup]="loginForm" nzLayout="vertical" class="login-form"
+                                (ngSubmit)="submitForm()">
+                                <nz-form-item>
+                                    <nz-form-label nzRequired nzFor="userName">Username</nz-form-label>
+                                    <nz-form-control nzErrorTip="Please input your username!">
+                                        <nz-input-group [nzPrefix]="prefixUser">
+                                            <input type="text" nz-input formControlName="userName"
+                                                placeholder="Username">
+                                        </nz-input-group>
+                                    </nz-form-control>
+                                </nz-form-item>
+                                <nz-form-item class="relative">
+                                    <nz-form-label nzRequired nzFor="password">Password</nz-form-label>
+
+                                    <nz-form-control nzErrorTip="Please input your Password!">
+                                        <nz-input-group [nzPrefix]="prefixLock">
+                                            <input type="password" nz-input formControlName="password"
+                                                placeholder="Password">
+                                        </nz-input-group>
+                                    </nz-form-control>
+                                </nz-form-item>
+
+                                <nz-form-item class="relative">
+                                    <nz-form-label nzRequired nzFor="password">Select Country</nz-form-label>
+                                    <nz-form-control nzErrorTip="Please input your Country!">
+                                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Country"
+                                            formControlName="country_list_fname" [(ngModel)]="cuntry_name_value">
+                                            <nz-option *ngFor="let o of country_list" [nzValue]="o.value"
+                                                [nzLabel]="o.label">
+                                            </nz-option>
+                                        </nz-select>
+                                    </nz-form-control>
+                                </nz-form-item>
+
+                                <nz-form-item>
+
+                                    <nz-form-control>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a class="float-right font-size-13 p-t-10 text-muted"
+                                                style="position:absolute; right: 0"
+                                                [routerLink]="['/authentication/reset-password-1']">Forget Password?</a>
+                                            <button nz-button class="login-form-button"
+                                                style="background: #FF4A55 !important; border: 1px solid #FF4A55 !important;"
+                                                [nzType]="'primary'">Sign
+                                                In</button>
+                                        </div>
+                                    </nz-form-control>
+                                </nz-form-item>
+                            </form>
+                            <ng-template #prefixUser><i nz-icon nzType="user"></i></ng-template>
+                            <ng-template #prefixLock><i nz-icon nzType="lock"></i></ng-template>
+                        </nz-card>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>

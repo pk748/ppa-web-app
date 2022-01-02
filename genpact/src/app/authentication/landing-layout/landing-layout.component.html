@@ -1,0 +1,125 @@
+<div class="container-fluid p-0 h-100">
+  <div class="row no-gutters h-100">
+    <div class="col-lg-12 d-none d-lg-flex"
+      style="background-image:url('assets/images/logo/Login-Bg_Image.png'); padding-top: 20px;background-repeat: no-repeat;background-size: cover;">
+
+      <div class=" h-100 p-h-40 ">
+        <div class="row">
+          <div class="col-sm-9 ">
+            <img src="../../../assets/images/logo/logo2.png" alt=""
+              style=" margin-bottom: 20px;margin-top: 10px;  width:70px !important; text-align: left !important;">
+            <span style="font-size: 30px; margin-left: 20px; color: #fff !important;">Post Payment Audit</span>
+          </div>
+
+          <div class="col-sm-3">
+            <nz-select ngModel="jack" style="width: 150px !important; color: #fff !important;">
+              <nz-option nzValue="jack" nzLabel="English"></nz-option>
+              <nz-option nzValue="lucy" nzLabel="Spanish"></nz-option>
+            </nz-select>&nbsp;
+            <button nz-button nzType="default" title="Logout" (click)="LogoutUser()"
+              style="background: transparent !important;  color: #fff !important; height: 45px !important;" title="Logout" nzShape=""
+              ><i nz-icon nzType="logout" style="color: #00AECF;"></i> Logout</button>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-1">
+              <img src="../../../assets/images/logo/user_icon.png" width="53px" height="53px">
+
+            </div>
+            <div class="col-sm-2">
+              <span style="font-size: 16px; color: #FF555F; float: left; text-align: left;">Welcome, <br><span
+                  style="font-size: 18px; color: #fff !important;">Cristian Castillo </span></span><br>
+            </div>
+          </div>
+
+          <div class="row row-top">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+              <div class="row">
+
+                <div class="col-sm-6">
+                  <div id="data" class="card" (click)="selectPPA('data')" onfocus="showNav(false)">
+                    <h4>Data</h4>
+                    <span>Lorem Ipsum has been the industry</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="card" id="claim" (click)="selectPPA('claim')" onfocus="showNav(false)"
+                    onblur="showNav(true)">
+                    <h4>Claim</h4>
+                    <span>Lorem Ipsum has been the industry</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="card" id="reports" (click)="selectPPA('reports')" onfocus="showNav(false)"
+                    onblur="showNav(true)">
+                    <h4>Reports</h4>
+                    <span>Lorem Ipsum has been the industry</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="card" id="audit" (click)="selectPPA('audit')" onfocus="showNav(false)">
+                    <h4>Audit</h4>
+                    <span>Lorem Ipsum has been the industry</span>
+                  </div>
+
+                </div>
+
+
+
+              </div>
+            </div>
+
+
+
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              <nz-card style="height: 300px; background: #F2F2F2 !important;
+                            overflow: auto;">
+                <p>Select Audit Type</p>
+
+                <div *ngFor="let val of listOfData">
+                  <!-- <nz-radio-group [(ngModel)]="radioValue"  (ngModelChange)="changeAudiType(val.name)">
+                                    <label nz-radio-button [nzValue]="val.name"
+                                        style="width: 100%; background:#F2F2F2 !important;">{{val.name}}</label>&nbsp;
+                                </nz-radio-group> -->
+
+                  <nz-radio-group [(ngModel)]="radioValue" (ngModelChange)="changeAudiType(val.name)"
+                    style="margin-bottom: 15px !important;">
+                    <label nz-radio [ngStyle]="style" nzValue="{{val.name}}">{{val.name}}</label>
+                  </nz-radio-group>
+                </div>
+
+              </nz-card>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+              <div class="container-fluid h-100">
+                <div class="d-flex h-100 p-v-15 flex-column justify-content-between">
+                  <div class="d-none d-md-flex p-h-40">
+                    <img src="assets/images/logo/logo.png" alt="">
+                  </div>
+                  <div class="container">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                      <button nz-button style="float: left;  color: #fff !important;" nzDanger nzType="primary"
+                        (click)="sendRequest()" [disabled]="NextBtnDisable">Next</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
